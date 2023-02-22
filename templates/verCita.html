@@ -1,0 +1,138 @@
+{% extends 'plantilla.html' %}
+{%block title%} Consultar Cita {%endblock%}
+
+{%block body%}
+
+<ul class="nav nav-pills nav-fill" style="background-color: #9DB5B2;">
+  <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Medicos</a>
+        <ul class="dropdown-menu" style="background-color: #9DB5B2;">
+          <li><a class="dropdown-item" href="/addMedic/{{idmedic}}">Registrar Nuevo Medico</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="/consultarMedico/{{idmedic}}">Consultar Medicos</a></li>
+        </ul>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Pacientes</a>
+    <ul class="dropdown-menu" style="background-color: #9DB5B2;">
+      <li><a class="dropdown-item" href="/addPac/{{idmedic}}">Registrar Nuevo Paciente</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="/consultarPacientes/{{idmedic}}">Consultar Pacientes</a></li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Citas</a>
+      <ul class="dropdown-menu" style="background-color: #9DB5B2;">
+        <li><a class="dropdown-item" href="/consultarCitas/{{idmedic}}">Consultar Citas</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <form action="/logout">
+        <button class="btn btn-outline-danger" type="submit">Cerrar Sesion</button>
+      </form>
+    </li>
+</ul>
+
+  <div class="container text-center mt-2">
+    <div class="row align-items-start">
+      <div class="col-md-1 float-md-end mb-1 ms-md-1 mt-3">
+        <img src="{{ url_for('static', filename='img/caduceo.png') }}" width="80" height="80">
+      </div>
+      <div class="col">  
+        <div class = "display-6  mt-1 mb-1 text-center"> Consultar Cita </div>
+        <img src="{{ url_for('static', filename='img/cita.png') }}" width="50" height="50">
+      </div>
+      <div class="col-md-1 float-md-end mb-1 ms-md-1 mt-3">
+        <img src="{{ url_for('static', filename='img/caduceo.png') }}" width="80" height="80">
+      </div>
+    </div>
+
+  
+  <div class="card card-boby mt-3" style="background-color: #9DB5B2;">
+    <form class="row g-3 mt-1" action = "#" method="POST">
+      <div class="col-9">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" value="{{citas.15}}" name="txtName" disabled>
+      </div>
+      <div class="col-3">
+        <label class="form-label">Fecha</label>
+        <input type="text" class="form-control" value="{{citas.1}}" name="txtFecha" disabled>
+      </div>
+      <div class="col-4">
+        <label class="form-label">Peso</label>
+        <div class="input-group">
+          <input type="text" class="form-control" value="{{citas.2}}" name="txtPeso" placeholder="Ingresa el peso en KG" disabled>
+          <span class="input-group-text">kg</span>  
+        </div>
+      </div>
+      <div class="col-4">
+        <label class="form-label">Altura</label>
+        <div class="input-group">
+          <input type="text" class="form-control" value="{{citas.3}}" name="txtAltura" placeholder="Ingresa la altura en cm" disabled>
+          <span class="input-group-text">cm</span>  
+        </div>
+      </div>
+      <div class="col-4">
+        <label class="form-label">Temperatura</label>
+        <div class="input-group">
+          <input type="text" class="form-control" value="{{citas.4}}" name="txtTemperatura" placeholder="Ingresa la temperatura en C°" disabled>
+          <span class="input-group-text">C°</span>  
+        </div>
+      </div>
+      <div class="col-3">
+        <label class="form-label">Latidos Por Minuto</label>
+        <input type="text" class="form-control" value="{{citas.5}}" name="txtLatidos" disabled>
+      </div>
+      <div class="col-3">
+        <label class="form-label">Oxigenación</label>
+        <div class="input-group">
+          <input type="text" class="form-control" value="{{citas.6}}" name="txtOxigenacion" disabled>
+          <span class="input-group-text">%</span>  
+        </div>
+      </div>
+      <div class="col-3">
+        <label class="form-label">Glucosa</label>
+        <div class="input-group">
+          <input type="text" class="form-control" value="{{citas.7}}" name="txtGlucosa" disabled>
+          <span class="input-group-text">mg</span>  
+        </div>
+      </div>
+      <div class="col-3">
+        <label class="form-label">Edad</label>
+        <input type="text" class="form-control" value="{{citas.8}}" name="txtEdad" disabled>
+      </div>
+      <div class="col-md-12">
+        <label class="form-label">Sintomas</label>
+        <textarea class="form-control py-1" type="text" name="txtSintomas" cols="20" rows="2" disabled>{{citas.9}}</textarea>
+      </div>
+      <div class="col-12">
+        <label class="form-label">Diagnostico</label>
+        <input type="text" class="form-control" value="{{citas.10}}" name="txtDiagnostico" disabled>
+      </div>
+      <div class="col-12">
+        <label class="form-label">Tratamiento</label>
+        <textarea class="form-control" type="text" name="txtTratamiento" cols="20" rows="5" disabled>{{citas.11}}</textarea>
+      </div>
+      <div class="col-12">
+        <label class="form-label">Estudios</label>
+        <textarea class="form-control py-1" type="text" name="txtEstudios" cols="20" rows="2" disabled>{{citas.12}}</textarea>
+      </div>
+    </form>
+  </div>
+
+    <div class="container text-center">
+        <div class="row align-items-end">
+          <div class="col-md-1 float-md-end mb-1 ms-md-1 mt-2">
+            <img src="{{ url_for('static', filename='img/salud.png') }}" width="80" height="80">
+          </div>
+          <div class="col">  
+          </div>
+          <div class="col-md-1 float-md-end mb-1 ms-md-1 mt-2">
+            <img src="{{ url_for('static', filename='img/salud.png') }}" width="80" height="80">
+          </div>
+        </div>
+    </div>
+
+
+
+{%endblock%}

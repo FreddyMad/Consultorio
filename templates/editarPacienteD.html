@@ -1,0 +1,110 @@
+{% extends 'plantilla.html' %}
+{%block title%} Editar Paciente {%endblock%}
+
+{%block body%}
+
+<ul class="nav nav-pills nav-fill" style="background-color: #9DB5B2;">
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Pacientes</a>
+    <ul class="dropdown-menu" style="background-color: #9DB5B2;">
+      <li><a class="dropdown-item" href="/addPacD/{{idmedic}}">Registrar Nuevo Paciente</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="/consultarPacientesD/{{idmedic}}">Consultar Pacientes</a></li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Citas</a>
+      <ul class="dropdown-menu" style="background-color: #9DB5B2;">
+        <li><a class="dropdown-item" href="/consultarCitasD/{{idmedic}}">Consultar Citas</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <form action="/logout">
+        <button class="btn btn-outline-danger" type="submit">Cerrar Sesion</button>
+      </form>
+    </li>
+</ul>
+
+  <div class="container text-center mt-2">
+    <div class="row align-items-start">
+      <div class="col-md-1 float-md-end mb-1 ms-md-1">
+        <img src="{{ url_for('static', filename='img/caduceo.png') }}" width="80" height="80">
+      </div>
+      <div class="col">  
+      </div>
+      <div class="col-md-1 float-md-end mb-1 ms-md-1">
+        <img src="{{ url_for('static', filename='img/caduceo.png') }}" width="80" height="80">
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+     <div class="col-10">
+        <div class="card card-boby mt-6" style="background-color: #9DB5B2;">
+            <div class="container mt-3">
+                <div class = "display-6  mt-1 mb-2 text-center"> Añadir Nuevo Paciente  {{id}}</div>
+                <div class="col">
+                    <img src="{{ url_for('static', filename='img/saludable.png') }}" width="100" height="100">
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="mb-3 mt-4">
+                            <label class="form-label">Nombre Completo: </label>
+                        </div>
+                          <div class="mb-3 mt-4">
+                            <label class="form-label">Fecha de nacimiento: </label>
+                          </div>
+                          <div class="mb-3 mt-4">
+                            <label class="form-label">Enfermedades: </label>
+                          </div>
+                          <div class="mb-3 mt-4">
+                            <label class="form-label">Alergias: </label>
+                          </div>
+                          <div class="mb-3 mt-4">
+                            <label class="form-label">Antecedentes: </label>
+                            
+                          </div>
+                          
+                    </div>
+                    <div class="col-md-9">
+                        <form action = "/actualizarPacD/{{idmedic}}/{{pacientes.0}}" method="POST">
+                            <div class = "mb-3 mt-3"> 
+                                <input type="text" name="txtNombre" value="{{pacientes.1}}" placeholder="Nombre Completo" class="form-control" required>
+                            </div>
+                            <div class = "mb-3 mt-3">
+                                <input type="date" name="txtFen" value="{{pacientes.2}}" placeholder="Fecha Nacimiento" class="form-control" required>
+                            </div>
+                            <div class = "mb-3 mt-3">
+                                <input type="text" name="txtEnfe" value="{{pacientes.3}}" placeholder="Enfermedades" class="form-control">
+                            </div>
+                            <div class = "mb-3 mt-3">
+                                <input type="text" name="txtAle" value="{{pacientes.4}}" placeholder="Alergias" class="form-control">
+                            </div>
+                            <div class = "mb-3 mt-3">
+                                <input type="txt" name="txtAnt" value="{{pacientes.5}}" placeholder="Antecedentes" class="form-control">
+                            </div>      
+                    </div>
+                      <div class="d-grid gap-2">
+                        <button type="submit"  class="btn btn-info mb-3"> Actualizar Paciente</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center">
+        <div class="row align-items-end">
+          <div class="col-md-1 float-md-end mb-1 ms-md-1">
+            <img src="{{ url_for('static', filename='img/salud.png') }}" width="80" height="80">
+          </div>
+          <div class="col">  
+          </div>
+          <div class="col-md-1 float-md-end mb-1 ms-md-1">
+            <img src="{{ url_for('static', filename='img/salud.png') }}" width="80" height="80">
+          </div>
+        </div>
+
+
+
+{%endblock%}

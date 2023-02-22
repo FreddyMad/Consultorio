@@ -1,0 +1,112 @@
+{% extends 'plantilla.html' %}
+{%block title%} Menu Administradores {%endblock%}
+
+{%block body%}
+
+<ul class="nav nav-pills nav-fill mb-1" style="background-color: #9DB5B2;"> 
+  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Medicos</a>
+          <ul class="dropdown-menu" style="background-color: #9DB5B2;">
+            <li><a class="dropdown-item" href="/addMedic/{{id.0}}">Registrar Nuevo Medico</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/consultarMedico/{{id.0}}">Consultar Medicos</a></li>
+          </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Pacientes</a>
+      <ul class="dropdown-menu" style="background-color: #9DB5B2;">
+        <li><a class="dropdown-item" href="/addPac/{{id.0}}">Registrar Nuevo Paciente</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/consultarPacientes/{{id.0}}">Consultar Pacientes</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Citas</a>
+        <ul class="dropdown-menu" style="background-color: #9DB5B2;">
+          <li><a class="dropdown-item" href="/consultarCitas/{{id.0}}">Consultar Citas</a></li>
+        </ul>
+      </li>
+    <li class="nav-item">
+      <form action="/logout">
+        <button class="btn btn-outline-danger" type="submit">Cerrar Sesion</button>
+      </form>
+      </li>
+  </ul>
+
+  <div class="container text-center mt-2">
+    <div class="row align-items-start">
+      <div class="col-md-1 float-md-end mb-1 ms-md-1">
+        <img src="{{ url_for('static', filename='img/caduceo.png') }}" width="90" height="90">
+      </div>
+      <div class="col">  
+      </div>
+      <div class="col-md-1 float-md-end mb-1 ms-md-1">
+        <img src="{{ url_for('static', filename='img/caduceo.png') }}" width="90" height="90">
+      </div>
+    </div>
+
+    <div class="container mt-2">
+        <div class="frase-sty" style="background-color: #9DB5B2;">
+            <p>"El buen médico trata la enfermedad; el gran médico trata al paciente que tiene la enfermedad."</p>
+            <p>William Osler</p>
+        </div>
+    </div>
+
+    <div class="row align-items-center">
+        <div class="col">
+        </div>
+        <div class="col">
+            <img src="{{ url_for('static', filename='img/doc.png') }}" width="140" height="140">
+        </div>
+        <div class="col">
+        </div>
+      </div>
+
+      <div class = "row justify-content-center mt-1">
+        <div class="col-md-7">
+            <table class="table table-striped-columns mt-2" style="background-color: #9DB5B2;">
+                <tbody>
+                  <tr>
+                    <th scope="row">Doctor</th>
+                    <td>{{id.1}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">RFC</th>
+                    <td>{{id.2}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cedula</th>
+                    <td>{{id.3}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Correo</th>
+                    <td>{{id.5}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Celular</th>
+                    <td>{{id.6}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Especialidad</th>
+                    <td>{{id.4}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div> 
+
+    <div class="container text-center">
+        <div class="row align-items-end">
+          <div class="col-md-1 float-md-end mb-1 ms-md-1">
+            <img src="{{ url_for('static', filename='img/salud.png') }}" width="90" height="90">
+          </div>
+          <div class="col">  
+          </div>
+          <div class="col-md-1 float-md-end mb-1 ms-md-1">
+            <img src="{{ url_for('static', filename='img/salud.png') }}" width="90" height="90">
+          </div>
+        </div>
+
+
+
+{%endblock%}
